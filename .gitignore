@@ -1,8 +1,5 @@
-*.aux
-*.gnuplot
-*.table
-*.fdb_latexmk
-*.fls
-*.log
-*.out
+temp/
+__pycache__/
 *.synctex.gz
+*venv*
+svg-inkscape/
