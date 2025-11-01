@@ -6,7 +6,7 @@ k=1.380649e-23
 
 def f(nu, T):
     a = h * nu / (k * T)
-    return np.exp(-a) * (0.6 * a ** 3 + 2.8 * a ** 2 + 5.6 * a + 5.6)
+    return np.exp(-a) * (0.6 * a ** 2 + 2.2 * a + 2.2)
 
 nus = np.logspace(-5,20,1000)
 plt.plot(nus,f(nus, 300),label=r'$T=300$ K')

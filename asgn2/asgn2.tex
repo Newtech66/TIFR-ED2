@@ -2,11 +2,8 @@
 % Change page layout
 \usepackage[margin=2cm]{geometry}
 \usepackage{xcolor}
-\usepackage{tensor}
 \usepackage{parskip}
 \usepackage{amsmath, amssymb}
-\usepackage{gensymb}
-\usepackage{cancel}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{caption}
@@ -197,26 +194,26 @@ The emitted power density per unit frequency is given by Rybicki and Lightman eq
 \begin{equation}
     \frac{dW}{d\omega dVdt}(v,\omega)=\frac{16\pi e^6}{3\sqrt{3}c^3m^2 v}n_en_iZ^2g_{ff}(v,\omega)
 \end{equation}
-Assuming the velocity distribution is given as a volume density in $(v_x,v_y,v_z)$ space, we need to do the integral
+We need to do the integral
 \begin{equation}
-    \frac{dW}{d\omega dVdt}(T,\omega) = \frac{\int_{v_{\text{min}}}^\infty dv\ \frac{dW}{d\omega dVdt}(v,\omega)v^6\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right)}{\int_0^\infty dv\ v^6\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right)}
+    \frac{dW}{d\omega dVdt}(T,\omega) = \frac{\int_{v_{\text{min}}}^\infty dv\ \frac{dW}{d\omega dVdt}(v,\omega)v^4\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right)}{\int_0^\infty dv\ v^4\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right)}
 \end{equation}
 where $v_{\text{min}}=\sqrt{2h\nu/m}$ and $\omega=2\pi\nu$.
 
 First let us compute the denominator.
 \begin{align}
-    \int_0^\infty dv\ v^6\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right) &= \frac{1}{2}\left(\frac{2kT}{m}\right)^{7/2}\Gamma\left(\frac{7}{2}\right) + 0.3\times\left(\frac{2kT}{m}\right)^{7/2}\Gamma\left(\frac{9}{2}\right)\\
-    &=2.9\sqrt{\pi}\left(\frac{2kT}{m}\right)^{7/2}
+    \int_0^\infty dv\ v^4\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right) &= \frac{1}{2}\left(\frac{2kT}{m}\right)^{5/2}\Gamma\left(\frac{5}{2}\right) + 0.3\times\left(\frac{2kT}{m}\right)^{5/2}\Gamma\left(\frac{7}{2}\right)\\
+    &=0.94\sqrt{\pi}\left(\frac{2kT}{m}\right)^{5/2}
 \end{align}
 We straightforwardly used the properties and values of the gamma function in the above. Now we compute the numerator.
 \begin{align}
-    &=\frac{16\pi e^6}{3\sqrt{3}c^3m^2}n_en_iZ^2\int_{v_{\text{min}}}^\infty dv\ v^5\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right)g_{ff}(v,\omega)\label{eq:1}\\
-    &=\frac{16\pi e^6}{3\sqrt{3}c^3m^2}n_en_iZ^2\bar{g}_{ff}(v,\omega)\frac{1}{2}\left(\frac{2kT}{m}\right)^3\int_{h\nu/kT}^\infty dt\ t^2\exp\left(-t\right)\left(1+0.6t\right)\label{eq:2}\\
-    &=\frac{16\pi e^6}{3\sqrt{3}c^3m^2}n_en_iZ^2\bar{g}_{ff}\frac{1}{2}\left(\frac{2kT}{m}\right)^3\times\left[0.6\left(\frac{h\nu}{kT}\right)^3+2.8\left(\frac{h\nu}{kT}\right)^2+5.6\left(\frac{h\nu}{kT}\right)+5.6\right]\exp\left(-\frac{h\nu}{kT}\right)
+    &=\frac{16\pi e^6}{3\sqrt{3}c^3m^2}n_en_iZ^2\int_{v_{\text{min}}}^\infty dv\ v^3\exp\left(-\frac{mv^2}{2kT}\right)\left(1+0.3\times\left(\frac{mv^2}{kT}\right)\right)g_{ff}(v,\omega)\label{eq:1}\\
+    &=\frac{8\pi e^6}{3\sqrt{3}c^3m^2}n_en_iZ^2\bar{g}_{ff}(v,\omega)\left(\frac{2kT}{m}\right)^2\int_{h\nu/kT}^\infty dt\ t\exp\left(-t\right)\left(1+0.6t\right)\label{eq:2}\\
+    &=\frac{8\pi e^6}{3\sqrt{3}c^3m^2}n_en_iZ^2\bar{g}_{ff}\left(\frac{2kT}{m}\right)^2\left[0.6\left(\frac{h\nu}{kT}\right)^2+2.2\left(\frac{h\nu}{kT}\right)+2.2\right]\exp\left(-\frac{h\nu}{kT}\right)
 \end{align}
 We extracted $g_{ff}$ as a thermal averaged constant in going from (\ref{eq:1}) to (\ref{eq:2}). So finally we get
 \begin{equation}
-    \frac{dW}{d\nu dVdt}(T,\omega) = \frac{1.06\pi e^6}{c^3m^2}n_en_iZ^2\bar{g}_{ff}\left(\frac{2kT}{\pi m}\right)^{-1/2}\left[0.6\left(\frac{h\nu}{kT}\right)^3+2.8\left(\frac{h\nu}{kT}\right)^2+5.6\left(\frac{h\nu}{kT}\right)+5.6\right]\exp\left(-\frac{h\nu}{kT}\right)
+    \frac{dW}{d\nu dVdt}(T,\omega) = \frac{3.28\pi e^6}{c^3m^2}n_en_iZ^2\bar{g}_{ff}\left(\frac{2kT}{\pi m}\right)^{-1/2}\left[0.6\left(\frac{h\nu}{kT}\right)^2+2.2\left(\frac{h\nu}{kT}\right)+2.2\right]\exp\left(-\frac{h\nu}{kT}\right)
 \end{equation}
 \begin{figure}[h]
   \begin{center}
