@@ -1,0 +1,15 @@
+\begin{tikzpicture}[x={(0.866cm,-0.5cm)}, y={(0.866cm,0.5cm)}, z={(0cm,1cm)},scale=3]
+\draw[<->, thick] (-1,0,0) -- (1,0,0) node[anchor=west] {$x$};
+\draw[<->, thick] (0,-1,0) -- (0,1,0) node[anchor=west] {$y$};
+\draw[<->, thick] (0,0,-1) -- (0,0,1) node[anchor=east] {$z$};
+\begin{scope}[canvas is yz plane at x=0,scale=0.4]
+\fill[opacity=0.2] (0,0) circle [radius=1];
+\draw[<->, ultra thick,color=blue,rotate=45] (-1,0) -- (1,0);
+\draw[<->, ultra thick,color=red,rotate=-45] (-1,0) -- (1,0);
+\end{scope}
+\draw[-, dashed, thin,scale=0.8] (0,0,0) -- (0.7, 0.7, 0.4);
+\filldraw[scale=0.8] (0.7, 0.7, 0.4) circle [radius=1pt] node[anchor=west] {$P$};
+\begin{scope}[x={(0.866cm,-0.5cm)}, y={(0.866cm,1.5cm)}]
+\draw[-,scale=0.4] (0.4,0.27) arc[radius=0.2,start angle=0, end angle=36,x radius=2, y radius=0.5] node[above right=-0.2 and 0.24]{$\theta$};
+\end{scope}
+\end{tikzpicture}

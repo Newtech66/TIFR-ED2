@@ -12,6 +12,8 @@
 \usepackage{caption}
 \usepackage{svg}
 \usepackage{placeins}
+\usepackage{tikz}
+\usetikzlibrary{positioning,3d}
 
 \hypersetup{
     colorlinks=true
@@ -129,9 +131,49 @@ A free charge experiences a force $\vec{F}=q\vec{E}_{\text{in}}$. The dipole mom
 \end{equation}
 Unpolarised light can always be decomposed into a superposition of two linearly polarised beams with polarisations along perpendicular axes with any orientation in the plane perpendicular to the direction of propagation. What this means is that we can always decompose the unpolarised light into one beam with a polarisation in the plane containing both the charged particle and the observation point, and one with a polarisation perpendicular to it.
 
-% Put a diagram here
+\begin{figure}[h]
+    \centering
+    \input{p4a.tikz}
+    \caption{The incoming polarized light is split into two axes. The blue axis is in the plane containing the origin and the observation point $P$. The red axis is perpendicular to it. Note that the angle $\theta$ is measured in the plane containing the origin and $P$ and is not the $\theta$ in spherical coordinates. This is true of $\phi$ in part (C) as well.}
+\end{figure}
 
-Consider the beam with polarisation in the plane. The angle between the polarisation vector and the position vector is $\theta$.
+The intensity of an oscillating dipole is given by equation (3.23a) of Rybicki and Lightman,
+\begin{equation}
+    \frac{dP}{d\Omega}=\frac{|\ddot{\vec{d}}|^2}{4\pi c^3}\sin^2\Theta
+\end{equation}
+where $\Theta$ is the angle between $\ddot{\vec{d}}$ and the vector to the observation point.
+
+Consider the beam with polarisation in the plane. Let the angle between the in-plane polarisation vector and the position vector br $\theta$. So the intensity is
+\begin{equation}
+    \frac{dP_{\parallel}}{d\Omega}=\frac{q^2|\vec{E}|^2}{4\pi mc^3}\sin^2\theta
+\end{equation}
+
+Consider the beam with polarisation perpendicular to the plane. The out-of-plane polarisation vector and the position vector are perpendicular. So the intensity is
+\begin{equation}
+    \frac{dP_{\perp}}{d\Omega}=\frac{q^2|\vec{E}|^2}{4\pi mc^3}
+\end{equation}
+So the total intensity is
+\begin{equation}
+    \frac{dP}{d\Omega}=\frac{q^2|\vec{E}|^2}{4\pi mc^3}(1+\sin^2\theta)
+\end{equation}
+The degree of polarisation is
+\begin{align}
+    \Pi&=\frac{I_{\text{max}}-I_{\text{min}}}{I_{\text{max}}+I_{\text{min}}}\\
+    &=\frac{1-\sin^2\theta}{1+\sin^2\theta}
+\end{align}
+
+\subsection*{(B)}
+The intensity is invariant under $\theta\to\pi-\theta$. We get 100\% polarisation at $\theta=0$ and 0\% polarization at $\theta=\pi/2$.
+
+\subsection*{(C)}
+Let $\theta$ be the angle between the in-plane polarization vector of the beam propagating along $x$ and the position vector. Similarly let $\phi$ be the angle between the in-plane polarization vector of the beam propagating along $z$ and the position vector.  From the results of (A), we can get the total power as
+\begin{equation}
+    \frac{dP}{d\Omega}=\frac{q^2}{4\pi mc^3}|\vec{E}|^2(1+\sin^2\theta)+\frac{q^2}{4\pi mc^3}\frac{|\vec{E}|^2}{10}(1+\sin^2\phi)
+\end{equation}
+So the degree of polarisation is
+\begin{equation}
+    \Pi=\frac{(1-\sin^2\theta)+\frac{1}{10}(1-\sin^2\phi)}{(1+\sin^2\theta)+\frac{1}{10}(1+\sin^2\phi)}
+\end{equation}
 
 \section*{P5}
 The radiation reaction force is given by
